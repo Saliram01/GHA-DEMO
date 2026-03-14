@@ -28,7 +28,7 @@ jobs:
           - name: Prod Deploy
             run: echo "Deploying the code to Prod Environment"
 
-    success_notify:
+    failure_notify:
         needs: [quality_checks, dev_deploy, prod_deploy]
         if: always() && !failure()
         runs-on: ubuntu-latest
