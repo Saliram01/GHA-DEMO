@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Running with condition if branch is main
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: echo "Running this steps"
+        if: github.ref_name == 'main'
+        run: echo "with if conditions"
 
       - name: Running without conditions
-        run: echo "Running this steps"
+        run: echo "without conditions"
