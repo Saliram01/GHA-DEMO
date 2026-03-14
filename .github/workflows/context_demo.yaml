@@ -17,4 +17,4 @@ jobs:
       - name: Print all environment variables
         run: printenv
       - name: Print github id from environment variables
-        run: "$GITHUB_SHA"
+        run: echo "$GITHUB_SHA"
