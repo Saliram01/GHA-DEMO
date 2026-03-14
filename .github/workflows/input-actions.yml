@@ -15,7 +15,7 @@ on:
         description: "Choose the git tag to deploy"
         required: true
 
-jobs:
+jobs:                
   input_demo:
     runs-on: ubuntu-latest
     steps:
