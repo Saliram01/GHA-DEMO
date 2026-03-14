@@ -1,0 +1,23 @@
+name: Github Action Input Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Choose the env to deploy"
+        required: true
+        default: dev
+        options:
+          - dev
+          - uat
+          - prod
+      artifact_tag:
+        description: "Choose the git tag to deploy"
+        required: true
+
+jobs:
+  input_demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the application
+        run: echo "Deploy the ${{ github.event.inputs.artifact_tag }} application to ${{ github.event.inputs.environment }}"
