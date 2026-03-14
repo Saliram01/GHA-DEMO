@@ -1,0 +1,16 @@
+name: If Condition Demo
+on:
+  push:
+    branches:
+      - main
+      - develop
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running with condition if branch is main
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: echo "Running this steps"
+
+      - name: Running without conditions
+        run: echo "Running this steps"
