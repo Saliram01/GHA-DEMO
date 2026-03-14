@@ -27,10 +27,18 @@ jobs:
         steps:
           - name: Prod Deploy
             run: echo "Deploying the code to Prod Environment"
+    
+    success_notify:
+        needs: [quality_checks, dev_deploy, prod_deploy]
+        if: always() && !failure()
+        runs-on: ubuntu-latest
+        steps:
+          - name: Notify Success
+            run: echo "Success Notification sent to the team"
 
     failure_notify:
         needs: [quality_checks, dev_deploy, prod_deploy]
-        if: always() && !failure()
+        if: failure()
         runs-on: ubuntu-latest
         steps:
           - name: Notify Failure
