@@ -1,0 +1,9 @@
+name: Or Condition
+on: push
+jobs:
+  or-cond-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run for Saliram Or JavaHome
+        if: github.actor == 'Saliram01' || github.actor == 'JavaHome'
+        run: echo "It is triggered by Saliram01 or JavaHome"
